@@ -15,6 +15,9 @@
         <div class="container-fluid">
             <a class="navbar-brand text-light" href="/">Home</a>
         </div>
+        <div class="container-fluid">
+            <a class="navbar-brand text-light" href="/books">books</a>
+        </div>
     </nav>
     @if ($message = Session::get('success'))
           <div class="alert alert-success alert-block">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,17 @@ Route::put('/products/{id}/update', [ProductController::class, 'update']);
 Route::get('/products/{id}/delete', [ProductController::class, 'delete']);
 Route::delete('/products/{id}/delete', [ProductController::class, 'delete']);
 Route::get('/products/{id}/show', [ProductController::class, 'show']);
+
+//api routes
+
+Route::middleware('auth:api')->get('/user',function(Request $request){
+    return $request->user();
+});
+Route::get('/books',[BookController::class,'index']);
+Route::get('/newBook', [BookController::class, 'create']);
+Route::post('/storeBook', [BookController::class, 'storeBook']);
+Route::get('/books/{id}',[BookController::class,'show']);
+Route::get('/books/{id}/edit', [BookController::class, 'edit']);
+Route::post('/newBook',[BookController::class,'storeBook']);
+Route::put('/books/{id}/update',[BookController::class,'update']);
+Route::delete('/books/{id}/destroy',[BookController::class,'destroy']);
